@@ -699,7 +699,7 @@ function courseDetails(){
 		
 		tr[i].setAttribute("onmouseover","tableEntryPoint('"+date[0]+"','"+date[1]+"','"+date[2]+"','"+date[5]+"','"+date[6]+"','"+date[7]+"')")
 
-		courseCodePDF = tds[0].innerHTML.substring(0,3)+" "+tds[0].innerHTML.substring(3,tds[0].innerHTML.length);
+		courseCodePDF = tds[0].innerHTML.substring(3,tds[0].innerHTML.length);
 
 		tds[10].innerHTML += '<button class="buttonDetails" onclick="copyCode(\''+tds[1].innerHTML+'\')">Kopiuj kod</button><br/>';
 		tds[10].innerHTML += '<button class="buttonDetails" onclick="mark(\''+i+'\')">OZNACZ</button><br/>';

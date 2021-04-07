@@ -85,10 +85,6 @@ tr {
 
 tr:hover {
 	background-color: #977b71;
-
-}
-tr:hover * {
-	
 }
 
 tr:first-of-type {
@@ -97,14 +93,6 @@ tr:first-of-type {
 
 tr:first-of-type:hover {
 	background-color: #e8ebed;
-}
-
-th td {
-	text-align: left;
-	background-color: #4CAF50;
-	color: white;
-	position: sticky; 
-	top: 0;
 }
 
 #filtry {
@@ -206,7 +194,6 @@ th td {
 	height: 100%;
 	width: 80px;
 	background-color: #cccdcd;
-	font-size: 14px;
 	color: black;
 }
 

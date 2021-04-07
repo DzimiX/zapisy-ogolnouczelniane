@@ -176,7 +176,7 @@ function gdzieJaJestem(){
     } else {
         main.innerHTML +=`
 </br></br> <span style='color:yellow'><b>Aby skrypt działał musisz RĘCZNIE przejść na wybrane zapisy.</b></span>
-</br> Wprowadzenie kodów i kliknięciu zapisz spowoduje automatyczne odpalenie po wejściu na zapisy (miejsce gdzie wpisujesz kod kursu w okienko).
+</br> Wprowadzenie kodów i kliknięcie zapisuj spowoduje automatyczne próby zapisywania po wejściu na zapisy (miejsce gdzie wpisujesz kod kursu w okienko).
 `;
         retriveTextarea()
     }

@@ -699,9 +699,12 @@ function courseDetails(){
 		
 		tr[i].setAttribute("onmouseover","tableEntryPoint('"+date[0]+"','"+date[1]+"','"+date[2]+"','"+date[5]+"','"+date[6]+"','"+date[7]+"')")
 
-		tds[10].innerHTML += '<button class="buttonDetails" onclick="copyCode(\''+tds[1].innerHTML+'\')">Kopiuj kod</button></br>';
-		tds[10].innerHTML += '<button class="buttonDetails" onclick="mark(\''+i+'\')">OZNACZ</button></br>';
-		tds[10].innerHTML += '<button class="buttonDetails" onclick="showDetails(\''+i+'\')">SZCZEGÓŁY</button>';
+		courseCodePDF = tds[0].innerHTML.substring(0,3)+" "+tds[0].innerHTML.substring(3,tds[0].innerHTML.length);
+
+		tds[10].innerHTML += '<button class="buttonDetails" onclick="copyCode(\''+tds[1].innerHTML+'\')">Kopiuj kod</button><br/>';
+		tds[10].innerHTML += '<button class="buttonDetails" onclick="mark(\''+i+'\')">OZNACZ</button><br/>';
+		tds[10].innerHTML += '<button class="buttonDetails" onclick="showDetails(\''+i+'\')">SZCZEGÓŁY</button><br/>';
+		tds[10].innerHTML += '<form style="display: inline" action="http://www.akz.pwr.edu.pl/Katalog_kursow_ogolnouczelnianych_2020_2021.pdf#search='+courseCodePDF+'" method="get"><button class="buttonDetails">KARTA</button></form><br/>';
 	}
 }
 

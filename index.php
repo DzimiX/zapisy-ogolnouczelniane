@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Ułatwiacz zapisów</title>
@@ -19,19 +20,19 @@
             </div>
 
             <table id="mainTable">
-                <th>
+                <tr>
                     <td><b>Kod kursu</b></td>
                     <td><b>Kod grupy</b></td>
-                    <td><input onkeypress="updateInterface()" placeholder="Nazwa" id="in_nazwa"></input></td>
+                    <td><input onkeypress="updateInterface()" placeholder="Nazwa" id="in_nazwa"/></td>
                     <td><b>Termin</b></td>
-                    <td><input onkeypress="updateInterface()" placeholder="Prowadzący" id="in_prowadzacy"></input></td>
-                    <td><b>Wolne</br>miejsca</b></td>
+                    <td><input onkeypress="updateInterface()" placeholder="Prowadzący" id="in_prowadzacy"/></td>
+                    <td><b>Wolne<br/>miejsca</b></td>
                     <td><b>ZZU</b></td>
                     <td><b>Stacjonarne</b></td>
                     <td><b>Stopień</b></td>
                     <td><b>Uwagi</b></td>
                     <td><b>Szczegóły</b></td>
-                </th>
+                </tr>
 <?php
 $ch = curl_init();
 
@@ -43,13 +44,12 @@ $ret = curl_exec($ch);
 
 curl_close($ch);
 
-
 $ret = strip_tags($ret,'<table><tr><td><br>');
 $ret = strstr($ret, '	<tr class="gradeX">');
 $ret = strstr($ret, '		<tr>', true);
 
 if(strlen($ret) < 1000){
-    echo("<div style='font-size: medium; color: red; background-color: yellow; margin: 10px; padding: 10px;'>Wystąpił problem z pobraniem kursów...</br> Ponowna próba za 3 sekundy...</div>
+    echo("<div style='font-size: medium; color: red; background-color: yellow; margin: 10px; padding: 10px;'>Wystąpił problem z pobraniem kursów...<br/> Ponowna próba za 3 sekundy...</div>
     <script>
         document.getElementById('mainTable').style.display = 'none'; 
         function reload(){
@@ -60,7 +60,6 @@ if(strlen($ret) < 1000){
 } else {
     echo($ret);
 }
-
 ?>
             </table>
         </div>
@@ -123,43 +122,43 @@ if(strlen($ret) < 1000){
                 <h2>Filtry</h2>
             </div>
             <div class="modal-body">
-                Wybierz interesujące cię kursy.</br>
+                Wybierz interesujące cię kursy.<br/>
                 (W celu odfiltrowania kolizji z twoimi zajęciami ustaw swój plan.)
-                </br></br>
+                <br/><br/>
 
                 <input onclick="updateInterface()" type="checkbox" id="cb_ukryjPelne" name="cb_ukryjPelne" checked/>
-                <label for="cb_ukryjPelne"> - ukryj pełne kursy</label></br></br>
+                <label for="cb_ukryjPelne"> - ukryj pełne kursy</label><br/><br/>
 
-                Filtrowanie na podstawie nazwy kursu lub prowadzącego odbywa się bezpośrednio w tabeli.</br></br>
+                Filtrowanie na podstawie nazwy kursu lub prowadzącego odbywa się bezpośrednio w tabeli.<br/><br/>
 
                 Typ kursu:
                 <ul>
                     <input onclick="updateInterface()" type="checkbox" id="cb_lektoraty" name="cb_lektoraty" checked/>
-                    <label for="cb_lektoraty"> - lektoraty [L*...]</label></br>
+                    <label for="cb_lektoraty"> - lektoraty [L*...]</label><br/>
                     <input onclick="updateInterface()" type="checkbox" id="cb_sport" name="cb_sport" checked/>
-                    <label for="cb_sport"> - sport [v*... lub w*...]</label></br>
+                    <label for="cb_sport"> - sport [v*... lub w*...]</label><br/>
                     <input onclick="updateInterface()" type="checkbox" id="cb_humanistyczne" name="cb_humanistyczne" checked/>
-                    <label for="cb_humanistyczne"> - humanistyczne [H*...]</label></br>
+                    <label for="cb_humanistyczne"> - humanistyczne [H*...]</label><br/>
                 </ul>
 
                 Stopień studiów:
                 <ul>
                     <input onclick="updateInterface()" type="checkbox" id="cb_stopien1" name="cb_stopien1" checked/>
-                    <label for="cb_stopien1"> - I stopień (lub łączone)</label></br>
+                    <label for="cb_stopien1"> - I stopień (lub łączone)</label><br/>
                     <input onclick="updateInterface()" type="checkbox" id="cb_stopien2" name="cb_stopien2"/>
-                    <label for="cb_stopien2"> - II stopień (lub łączone)</label></br>
+                    <label for="cb_stopien2"> - II stopień (lub łączone)</label><br/>
                 </ul>
 
                 Godziny ZZU:
                 <ul>
                     <input onclick="updateInterface()" type="checkbox" id="cb_godziny15" name="cb_godziny15" checked/>
-                    <label for="cb_godziny15"> - 15 godzin</label></br>
+                    <label for="cb_godziny15"> - 15 godzin</label><br/>
                     <input onclick="updateInterface()" type="checkbox" id="cb_godziny30" name="cb_godziny30" checked/>
-                    <label for="cb_godziny30"> - 30 godzin</label></br>
+                    <label for="cb_godziny30"> - 30 godzin</label><br/>
                     <input onclick="updateInterface()" type="checkbox" id="cb_godziny45" name="cb_godziny45" checked/>
-                    <label for="cb_godziny45"> - 45 godzin</label></br>
+                    <label for="cb_godziny45"> - 45 godzin</label><br/>
                     <input onclick="updateInterface()" type="checkbox" id="cb_godziny60" name="cb_godziny60" checked/>
-                    <label for="cb_godziny60"> - 60 godzin</label></br>
+                    <label for="cb_godziny60"> - 60 godzin</label><br/>
                 </ul>
             </div>
         </div>
@@ -172,13 +171,13 @@ if(strlen($ret) < 1000){
                 <h2>Ustawianie Planu</h2>
             </div>
             <div class="modal-body">
-                <span>Każdy blok zajęć w nowej linii!</span></br>
+                <span>Każdy blok zajęć w nowej linii!</span><br/>
 
-                Wprowadź dane na podstawie wzorca:</br></br>
+                Wprowadź dane na podstawie wzorca:<br/><br/>
                 <textarea id="modalCode" style="width: 560px; height: 250px; resize: none;" placeholder='"wt","9:15","11:00","Optoelektronika I<br/><b>DŁUGA</b>"'>
 
-                </textarea></br></br>
-                Lub wykorzystaj formularz:</br>
+                </textarea><br/><br/>
+                Lub wykorzystaj formularz:<br/>
 
                 <select name="dzienUP" id="dzienUP">
                     <option selected value="">Wybierz dzień</option>
@@ -190,9 +189,9 @@ if(strlen($ret) < 1000){
                 </select>
                 <input style="width: 45px" name="godzinaRozpoczeciaUP" id="godzinaRozpoczeciaUP" placeholder="7:30"></input>
                 <input style="width: 45px" name="godzinaZakonczeniaUP" id="godzinaZakonczeniaUP" placeholder="9:00"></input>
-                <input style="width: 315px" name="komentarzUP" id="komentarzUP" placeholder="Optoelektronika I<br/><b>DŁUGA</b>"></input></b></br>
+                <input style="width: 315px" name="komentarzUP" id="komentarzUP" placeholder="Optoelektronika I<br/><b>DŁUGA</b>"></input></b><br/>
                 <button onclick="addModalCode()">Dodaj blok do siatki</button>
-                </br></br><button onclick="editStaticBlockCode()">Zapisz zmiany</button>
+                <br/><br/><button onclick="editStaticBlockCode()">Zapisz zmiany</button>
                 
             </div>
         </div>
@@ -205,15 +204,7 @@ if(strlen($ret) < 1000){
                 <h2>Ustawienia</h2>
             </div>
             <div class="modal-body">
-                <!--
-                Motyw graficzny:</br>
-                <select>
-                    <option>Jasny</option>
-                    <option>Ciemny</option>
-                </select>
-                </br></br>
-                -->
-                Usuń wszystkie przechowywane informacje:</br>
+                Usuń wszystkie przechowywane informacje:<br/>
                 <button onclick="reset()">Usuń!</button>
             </div>
         </div>
@@ -226,13 +217,13 @@ if(strlen($ret) < 1000){
                 <h2>Informacje</h2>
             </div>
             <div class="modal-body">
-                Ideą tej aplikacji jest usprawnienie procesu zapisu na kursy ogólnouczelniane.</br></br>
+                Ideą tej aplikacji jest usprawnienie procesu zapisu na kursy ogólnouczelniane.<br/><br/>
                 Wszystkie widoczne zasoby pobierane są ze strony <a href="http://www.akz.pwr.edu.pl">http://www.akz.pwr.edu.pl</a>, a autor aplikacji nie ma wpływu na pobierane treści ani wyświetlaną zawartość poza przetwarzaniem końcowym mającym na celu zwiększenie czytelności zgodnie z założeniem działania aplikacji. 
-                </br></br>
+                <br/><br/>
                 W celu sprawniejszego działania aplikacji zalecane jest doinstalowanie wtyczki obsługującej userscripty i dodanie do niej <a href="/zapisownik/zapisownik.user.js">skryptu do zapisów</a>.
-                </br></br>
+                <br/><br/>
                 Kod źródłowy dostępny na <a href="https://github.com/DzimiX/zapisy-ogolnouczelniane">githubie</a>.
-                </br></br>
+                <br/><br/>
                 Maciej Dzimira 2021
             </div>
         </div>
@@ -257,34 +248,34 @@ if(strlen($ret) < 1000){
                 <h2>Szczegóły kursu</h2>
             </div>
             <div class="modal-body">
-                <label for="szczegoly_kodKursu">Kod kursu:</label></br>
-                <input class="szczegolyKursu" id="szczegoly_kodKursu" name="szczegoly_kodKursu"/></br>
+                <label for="szczegoly_kodKursu">Kod kursu:</label><br/>
+                <input class="szczegolyKursu" id="szczegoly_kodKursu" name="szczegoly_kodKursu"/><br/>
 
-                <label for="szczegoly_kodGrupy">Kod grupy:</label></br>
-                <input class="szczegolyKursu" id="szczegoly_kodGrupy" name="szczegoly_kodGrupy"/></br>
+                <label for="szczegoly_kodGrupy">Kod grupy:</label><br/>
+                <input class="szczegolyKursu" id="szczegoly_kodGrupy" name="szczegoly_kodGrupy"/><br/>
 
-                <label for="szczegoly_nazwaKursu">Nazwa kursu:</label></br>
-                <input class="szczegolyKursu" id="szczegoly_nazwaKursu" name="szczegoly_nazwaKursu"/></br>
+                <label for="szczegoly_nazwaKursu">Nazwa kursu:</label><br/>
+                <input class="szczegolyKursu" id="szczegoly_nazwaKursu" name="szczegoly_nazwaKursu"/><br/>
 
-                <label for="szczegoly_terminKursu">Termin kursu:</label></br>
-                <input class="szczegolyKursu" id="szczegoly_terminKursu" name="szczegoly_terminKursu"/></br>
+                <label for="szczegoly_terminKursu">Termin kursu:</label><br/>
+                <input class="szczegolyKursu" id="szczegoly_terminKursu" name="szczegoly_terminKursu"/><br/>
 
-                <label for="szczegoly_prowadzacy">Prowadzący:</label></br>
-                <input class="szczegolyKursu" id="szczegoly_prowadzacy" name="szczegoly_prowadzacy"/></br>
+                <label for="szczegoly_prowadzacy">Prowadzący:</label><br/>
+                <input class="szczegolyKursu" id="szczegoly_prowadzacy" name="szczegoly_prowadzacy"/><br/>
 
-                <label for="szczegoly_wolneMiejsca">Wolne miejsca:</label></br>
-                <input class="szczegolyKursu" id="szczegoly_wolneMiejsca" name="szczegoly_wolneMiejsca"/></br>
+                <label for="szczegoly_wolneMiejsca">Wolne miejsca:</label><br/>
+                <input class="szczegolyKursu" id="szczegoly_wolneMiejsca" name="szczegoly_wolneMiejsca"/><br/>
 
-                <label for="szczegoly_zzu">ZZU:</label></br>
-                <input class="szczegolyKursu" id="szczegoly_zzu" name="szczegoly_zzu"/></br>
+                <label for="szczegoly_zzu">ZZU:</label><br/>
+                <input class="szczegolyKursu" id="szczegoly_zzu" name="szczegoly_zzu"/><br/>
 
-                <label for="szczegoly_stacjonarnie">Stacjonarnie:</label></br>
-                <input class="szczegolyKursu" id="szczegoly_stacjonarnie" name="szczegoly_stacjonarnie"/></br>
+                <label for="szczegoly_stacjonarnie">Stacjonarnie:</label><br/>
+                <input class="szczegolyKursu" id="szczegoly_stacjonarnie" name="szczegoly_stacjonarnie"/><br/>
 
-                <label for="szczegoly_poziomStudiow">Poziom studiów:</label></br>
-                <input class="szczegolyKursu" id="szczegoly_poziomStudiow" name="szczegoly_poziomStudiow"/></br>
+                <label for="szczegoly_poziomStudiow">Poziom studiów:</label><br/>
+                <input class="szczegolyKursu" id="szczegoly_poziomStudiow" name="szczegoly_poziomStudiow"/><br/>
 
-                <label for="szczegoly_komentarz">Komentarz:</label></br>
+                <label for="szczegoly_komentarz">Komentarz:</label><br/>
                 <textarea style="height: 100px" class="szczegolyKursu" id="szczegoly_komentarz" name="szczegoly_komentarz"></textarea>
             </div>
         </div>
